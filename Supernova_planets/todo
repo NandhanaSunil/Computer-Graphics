@@ -1,0 +1,40 @@
+reset to original frame
+change view
+pan
+/*
+orbital inclination : float ymerc = 0.2f * sin(glm::radians(mercuryrevolutionangle * 2.0f));
+merc_model = glm::translate(merc_model, glm::vec3(xmerc, ymerc, zmerc));
+// // Add at the top of your file with other global variables:
+float supernovaIntensity = 0.0f;
+bool supernovaTriggered = false;
+
+// Then in renderGL, add:
+if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    supernovaTriggered = true;
+}
+
+if (supernovaTriggered) {
+    supernovaIntensity += 0.005f;
+    if (supernovaIntensity > 1.0f) supernovaIntensity = 1.0f;
+    
+    // Make the sun pulsate more dramatically
+    float pulseEffect = 1.0f + sin(glfwGetTime() * 5.0f) * 0.2f * supernovaIntensity;
+    sun_model = glm::scale(sun_model, glm::vec3(pulseEffect));
+    
+    // Disturb planet orbits as supernova intensifies
+    mercuryrevolutionangle += 1.0f * supernovaIntensity;
+    venusrevolutionangle += 0.8f * supernovaIntensity;
+    earthrevolutionangle += 0.6f * supernovaIntensity;
+    // Apply to other planets too
+    
+    // Auto-trigger Mercury escape at a certain intensity
+    if (supernovaIntensity > 0.5f && !sendMercuryAway) {
+        sendMercuryAway = true;
+        // Set up Mercury escape path as before
+    }
+}
+*/
+Adjust the orbit scales: Your a/b values create nearly circular orbits. Consider making them more elliptical for visual interest.
+Add orbit trails: Consider adding orbit trails to visualize the path disturbance as the supernova progresses.
+Progressive effects: Make the supernova have progressive effects on planets - first Mercury gets affected, then Venus, etc.
+Camera movement: Consider adding camera movement that pulls back as the supernova intensifies.

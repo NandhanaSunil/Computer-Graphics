@@ -1,0 +1,8 @@
+gl_framework.cpp - initialises error_callback
+                               framebuffer_size_callback
+                               *key_callback
+                               *mouse_button_callback
+                               *cursor_position_callback
+                               *scroll_callback
+                               *processInput
+                    but not finished

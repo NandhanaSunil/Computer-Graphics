@@ -1,0 +1,8 @@
+-- make light bigger
+-- adjust view
+-- zoom
+-- pan
+-- keycontrols
+-- mouse controls
+-- background moving
+-- roughness
